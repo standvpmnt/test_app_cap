@@ -27,7 +27,7 @@ set :branch, 'master'
 append :linked_files, "config/master.key"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets log", "vendor/bundle", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -37,6 +37,6 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets log", "vendor/
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
+set :puma_init_active_record, true
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
