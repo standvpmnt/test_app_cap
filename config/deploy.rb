@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.12.0"
 
-set :puma_conf, "/var/www/trackerr/shared/config/puma.rb"
+set :puma_conf, "/var/www/test_app_cap/shared/config/puma.rb"
 set :application, "test_app_cap"
 set :repo_url, "git@github.com:standvpmnt/test_app_cap.git"
 
@@ -9,7 +9,7 @@ set :repo_url, "git@github.com:standvpmnt/test_app_cap.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/test_app_cap"
+set :deploy_to, "/home/ubuntu/test_app_cap"
 
 set :use_sudo, true
 set :branch, 'master'
