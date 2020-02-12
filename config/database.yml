@@ -23,6 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
+  timeout: 5000
   database: <%= Rails.application.credentials.dig(:RDS, :RDS_DB_NAME) %>
   username: <%= Rails.application.credentials.dig(:RDS, :RDS_USERNAME) %>
   password: <%= Rails.application.credentials.dig(:RDS, :RDS_PASSWORD) %>
