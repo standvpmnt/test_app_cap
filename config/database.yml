@@ -21,5 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: utf8
+  database: <%= Rails.application.credentials.dig(:RDS, :RDS_DB_NAME) %>
+  username: <%= Rails.application.credentials.dig(:RDS, :RDS_USERNAME) %>
+  password: <%= Rails.application.credentials.dig(:RDS, :RDS_PASSWORD) %>
+  host: <%= Rails.application.credentials.dig(:RDS, :RDS_HOSTNAME) %>
+  port: <%= Rails.application.credentials.dig(:RDS, :RDS_PORT) %>
