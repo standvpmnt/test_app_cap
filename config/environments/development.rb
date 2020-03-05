@@ -59,4 +59,15 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              Rails.application.credentials.dig(:email, :host_address),
+    port:                 Rails.application.credentials.dig(:email, :port),
+    # domain:               Rails.application.credentials.dig(:email, :domain),
+    user_name:            Rails.application.credentials.dig(:email, :username),
+    password:             Rails.application.credentials.dig(:email, :password),
+    authentication:       'plain',
+    enable_starttls_auto: true }
+
 end

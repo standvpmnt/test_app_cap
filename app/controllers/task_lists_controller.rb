@@ -28,6 +28,7 @@ class TaskListsController < ApplicationController
 
     respond_to do |format|
       if @task_list.save
+        NewTaskMailer.with(task: @task_list).new_task.deliver_later
         format.html { redirect_to @task_list, notice: 'Task list was successfully created.' }
         format.json { render :show, status: :created, location: @task_list }
       else
@@ -69,6 +70,6 @@ class TaskListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_list_params
-      params.require(:task_list).permit(:task, :priority)
+      params.require(:task_list).permit(:task, :priority, :email_id)
     end
 end

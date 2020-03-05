@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_194053) do
+ActiveRecord::Schema.define(version: 2020_02_23_175257) do
 
   create_table "task_lists", force: :cascade do |t|
     t.string "task"
     t.integer "priority"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email_id"
   end
 
 end

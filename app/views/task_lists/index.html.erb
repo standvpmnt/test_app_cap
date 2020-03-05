@@ -7,6 +7,7 @@
     <tr>
       <th>Task</th>
       <th>Priority</th>
+      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= task_list.task %></td>
         <td><%= task_list.priority %></td>
+        <td><%= task_list.email_id %></td>
         <td><%= link_to 'Show', task_list %></td>
         <td><%= link_to 'Edit', edit_task_list_path(task_list) %></td>
         <td><%= link_to 'Destroy', task_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
