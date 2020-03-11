@@ -40,20 +40,5 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 set :puma_init_active_record, true
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-SSHKit.config.command_map[:sidekiq] = "bundle exec sidekiq"
-SSHKit.config.command_map[:sidekiqctl] = "bundle exec sidekiqctl"
-set 
-  :sidekiq_default_hooks => true
-  :sidekiq_pid => File.join(shared_path, 'tmp', 'pids', 'sidekiq.pid') # ensure this path exists in production before deploying.
-  :sidekiq_env => fetch(:rack_env, fetch(:rails_env, fetch(:stage)))
-  :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
-  :sidekiq_options => nil
-  :sidekiq_require => nil
-  :sidekiq_tag => nil
-  :sidekiq_config => nil # if you have a config/sidekiq.yml, do not forget to set this. 
-  :sidekiq_queue => nil
-  :sidekiq_timeout => 10
-  :sidekiq_roles => :app
-  :sidekiq_processes => 1
-  :sidekiq_options_per_process => nil
-  :sidekiq_concurrency => nil
+# SSHKit.config.command_map[:sidekiq] = "bundle exec sidekiq"
+# SSHKit.config.command_map[:sidekiqctl] = "bundle exec sidekiqctl"
