@@ -50,6 +50,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rbenv', require: false
   gem 'capistrano3-puma'
+  gem 'capistrano-sidekiq'
 end
 
 group :test do

@@ -14,7 +14,7 @@ require "capistrano/deploy"
 # or
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
-
+require 'capistrano/sidekiq'
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
