@@ -28,7 +28,7 @@ class TaskListsController < ApplicationController
 
     respond_to do |format|
       if @task_list.save
-        NewTaskMailer.with(task: @task_list).new_task.deliver_later
+        NewTasksNotificationWorker.perform_in(1.minutes, @task_list.id, @task_list.priority)
         format.html { redirect_to @task_list, notice: 'Task list was successfully created.' }
         format.json { render :show, status: :created, location: @task_list }
       else
